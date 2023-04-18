@@ -45,12 +45,12 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
-
 app.post('/', urlencodedParser, (req, res) => {
   console.log('Got body:', req.body);
   res.sendStatus(200);
 });
 
+app.use(bodyParser.urlencoded({extended:true}));
 app.post('/play', (req, res) => {
   const key = req.body.key;
   console.log(req.body)

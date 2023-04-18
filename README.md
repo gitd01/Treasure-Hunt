@@ -1,5 +1,4 @@
 # Treasure Hunt
-# How to create login and registration API in node.js.
 
 ## Node.js modules used in this
        "bcrypt-nodejs": "0.0.3", //A native JS bcrypt library for NodeJS.used for encrypt and decry-pt password.

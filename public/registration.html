@@ -14,42 +14,57 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="container mx-auto flex flex-col md:flex-row items-center justify-between py-4">
-        <div >
-            <a class="text-2xl text-white font-bold py-2 px-4" href="./index.html"><h1>TREASURE HUNT</h1></a>
-        </div>
-    </nav>
-    <div class="wrapper mx-auto">
-        <div class="form-box register">
-            <h2>Registration</h2>
-    <form action="/register" method="POST">
-        <div class="input-box text-white">
-            <input type="text" name="name" id="name" required>
-            <label>Player Name</label>
-        </div>
-        <div class="input-box text-white">
-            <input type="email" name="email" id="email" required>
-            <label>Email</label>
-        </div>
-        <div class="input-box text-white">
-            <span class="icon"></span>
-            <input type="password" name="password" id="password" required>
-            <label>Password</label>
-        </div>
-        <div class="remember-forgot">
-            <label class="text-white">
-                <input type="checkbox">I agree to the terms & conditions
-            </label>
-        </div>
-        <button type="submit" class="btn">Register</button>
-        <div class="login-register pt-2">
-            <p class="text-white">Already have an account?<a href="./login.html" class="login-link">Login</a></p>
-        </div>
-    </form>
-</div>
-</div>
-    <footer></footer>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/app.js"></script>
+  <nav class="container mx-auto flex flex-col md:flex-row items-center justify-between py-4">
+      <div>
+          <a class="text-2xl text-white font-bold py-2 px-4" href="./index.html"><h1>TREASURE HUNT</h1></a>
+      </div>
+  </nav>
+  <div class="wrapper mx-auto">
+      <div class="form-box register">
+          <h2>Registration</h2>
+          <form action="/register" method="POST">
+              <div class="input-box text-white">
+                  <input type="text" name="name" id="name" required>
+                  <label>Player Name</label>
+              </div>
+              <div class="input-box text-white">
+                  <input type="email" name="email" id="email" required>
+                  <label>Email</label>
+              </div>
+              <div class="input-box text-white">
+                  <span class="icon"></span>
+                  <input type="password" name="password" id="password" required>
+                  <label>Password</label>
+              </div>
+              <div class="remember-forgot">
+                  <label class="text-white">
+                      <input type="checkbox">I agree to the terms & conditions
+                  </label>
+              </div>
+              <button type="submit" class="btn">Register</button>
+              <div class="login-register pt-2">
+                  <p class="text-white">Already have an account?<a href="./login.html" class="login-link">Login</a></p>
+              </div>
+          </form>
+          <div id="modal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
+            <div class="bg-white rounded-lg p-6">
+              <h2 class="text-lg font-bold mb-4">Registration successful</h2>
+              <p class="text-gray-600">Thank you for registering for Treasure Hunt. Now, you can play.</p>
+            </div>
+          </div>
+          
+      </div>
+  </div>
+  <footer></footer>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+  <script>
+      document.querySelector('form').addEventListener('submit', (event) => {
+          event.preventDefault();
+          document.querySelector('#modal').classList.remove('hidden');
+          setTimeout(() => {
+              window.location.href = '/play.html';
+          }, 3000);
+      });
+  </script>
 </body>
-</html>
